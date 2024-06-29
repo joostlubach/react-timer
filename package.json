@@ -1,5 +1,5 @@
 {
-  "name": "@joostlubach/react-timer",
+  "name": "react-timer",
   "version": "0.0.1",
   "description": "Self-disposing timer (setTimeout, setInterval, etc.) for React components",
   "author": "Joost Lubach",
@@ -23,7 +23,6 @@
     "build:tsc": "npm run build:tsc:esm && npm run build:tsc:cjs",
     "build:tsc:esm": "tsc -p tsconfig.prod.json --module esnext --outDir dist/esm --declarationDir dist/types",
     "build:tsc:cjs": "tsc -p tsconfig.prod.json --module commonjs --outDir dist/cjs --declaration false --declarationMap false",
-    "postinstall": "npm run build",
     "clean": "rimraf dist",
     "lint": "eslint src --ext .ts,.tsx",
     "check": "tsc -p . --noEmit",
