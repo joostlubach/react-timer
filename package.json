@@ -1,5 +1,5 @@
 {
-  "name": "@joostlubach/react-timer",
+  "name": "react-timer",
   "version": "0.0.1",
   "description": "Self-disposing timer (setTimeout, setInterval, etc.) for React components",
   "author": "Joost Lubach",
