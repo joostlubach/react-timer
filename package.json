@@ -23,7 +23,6 @@
     "build:tsc": "npm run build:tsc:esm && npm run build:tsc:cjs",
     "build:tsc:esm": "tsc -p tsconfig.prod.json --module esnext --outDir dist/esm --declarationDir dist/types",
     "build:tsc:cjs": "tsc -p tsconfig.prod.json --module commonjs --outDir dist/cjs --declaration false --declarationMap false",
-    "postinstall": "npm run build",
     "clean": "rimraf dist",
     "lint": "eslint src --ext .ts,.tsx",
     "check": "tsc -p . --noEmit",
@@ -40,7 +39,7 @@
     "typescript": "5.4.3"
   },
   "dependencies": {
-    "react": "^18.2.0",
     "ytil": "workspace:^"
-  }
+  },
+  "packageManager": "pnpm@8.4.0"
 }
