@@ -20,6 +20,7 @@ export default class Timer {
   }
 
   public disable() {
+    this.clearAll()
     this.enabled = false
   }
 
@@ -41,9 +42,7 @@ export default class Timer {
 
     const timeout = setTimeout(() => {
       this.timeouts.delete(timeout)
-      if (this.enabled) {
-        fn()
-      }
+      fn()
     }, ms)
 
     this.timeouts.add(timeout)
@@ -63,9 +62,8 @@ export default class Timer {
     if (!this.enabled) { return null }
 
     const timeout = setInterval(() => {
-      if (this.enabled) {
-        fn()
-      }
+      this.timeouts.delete(timeout)
+      fn()
     }, ms)
     this.timeouts.add(timeout)
     return timeout
@@ -92,9 +90,7 @@ export default class Timer {
 
     const animationFrame = requestAnimationFrame(() => {
       this.animationFrames.delete(animationFrame)
-      if (this.enabled) {
-        fn()
-      }
+      fn()
     })
 
     this.animationFrames.add(animationFrame)
