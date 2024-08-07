@@ -113,9 +113,6 @@ export default class Timer {
   // Promises
 
   public await<T>(promise: PromiseLike<T> | T): Promise<T> {
-    // Disable this rule because we correctly catch errors and there's no easy way to do this
-    // using the async/await syntax.
-    // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
       try {
         const retval = await promise
