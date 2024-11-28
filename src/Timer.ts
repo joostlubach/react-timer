@@ -56,26 +56,6 @@ export default class Timer {
   }
 
   // ------
-  // setInterval / clearInterval
-
-  public setInterval(fn: () => any, ms: number) {
-    if (!this.enabled) { return null }
-
-    const timeout = setInterval(() => {
-      this.timeouts.delete(timeout)
-      fn()
-    }, ms)
-    this.timeouts.add(timeout)
-    return timeout
-  }
-
-  public clearInterval(interval: number | null) {
-    if (interval == null) { return }
-    clearInterval(interval)
-    this.timeouts.delete(interval)
-  }
-
-  // ------
   // Animation frame
 
   public requestAnimationFrameAfter(fn: () => any, timeout: number) {
@@ -179,7 +159,7 @@ export default class Timer {
 
   public clearAll() {
     for (const timeout of this.timeouts) {
-      clearTimeout(timeout)
+      try { clearTimeout(timeout) } catch {}
     }
     this.timeouts.clear()
   }
