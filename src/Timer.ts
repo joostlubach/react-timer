@@ -161,7 +161,11 @@ export default class Timer {
     for (const timeout of this.timeouts) {
       try { clearTimeout(timeout) } catch {}
     }
+    for (const animationFrame of this.animationFrames) {
+      try { cancelAnimationFrame(animationFrame) } catch {}
+    }
     this.timeouts.clear()
+    this.animationFrames.clear()
   }
 
 }
