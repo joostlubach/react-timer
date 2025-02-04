@@ -4,10 +4,10 @@ import Timer from './Timer'
 export default function useTimer() {
   const timer = React.useMemo(() => new Timer(), [])
 
-  React.useEffect(
-    () => () => { timer.disable() },
-    [timer]
-  )
+  React.useEffect(() => {
+    timer.enable()
+    return () => { timer.disable() }
+  }, [timer])
 
   return timer
 }
