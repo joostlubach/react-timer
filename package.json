@@ -16,9 +16,9 @@
     "check": "tsc -p . --noEmit",
     "lint": "eslint src --ext ts,tsx",
     "test": "NODE_ENV=test DATA_ENV=test jest"
-},
+  },
   "peerDependencies": {
-    "react": "^18.0"
+    "react": "^19.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
