@@ -32,14 +32,14 @@
     "react": "^18.0"
   },
   "devDependencies": {
+    "@types/node": "^24.5.2",
     "@types/react": "^18.2.79",
     "copyfiles": "^2.4.1",
     "rimraf": "^5.0.5",
     "tsc-alias": "^1.8.8",
-    "typescript": "5.4.3"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "ytil": "workspace:^"
-  },
-  "packageManager": "pnpm@9.9.0"
+  }
 }
