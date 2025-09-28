@@ -26,5 +26,6 @@
   },
   "dependencies": {
     "ytil": "workspace:^"
-  }
+  },
+  "packageManager": "pnpm@9.9.0"
 }
