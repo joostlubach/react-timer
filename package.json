@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/lodash": "^4.17.20",
     "@types/node": "^24.5.2",
-    "@types/react": "^18.2.79",
+    "@types/react": "^19.1",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "copyfiles": "^2.4.1",
