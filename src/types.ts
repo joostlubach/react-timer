@@ -1,5 +1,5 @@
 export interface TransitionCallbacks {
-  onPrepare?: () => any
-  onCommit?:  () => any
-  onCleanUp?: () => any
+  onPrepare?: () => void
+  onCommit?:  () => void
+  onCleanUp?: () => void
 }

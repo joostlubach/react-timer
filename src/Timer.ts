@@ -36,7 +36,7 @@ export default class Timer {
   // ------
   // setTimeout / clearTimeout
 
-  public setTimeout(fn: () => any, ms: number) {
+  public setTimeout(fn: () => void, ms: number) {
     if (!this.enabled) { return null }
 
     const timeout = setTimeout(() => {
@@ -59,7 +59,7 @@ export default class Timer {
   // ------
   // setInterval / clearInterval
 
-  public setInterval(fn: () => any, ms: number) {
+  public setInterval(fn: () => void, ms: number) {
     if (!this.enabled) { return null }
 
     const timeout = setInterval(() => {
@@ -80,14 +80,14 @@ export default class Timer {
   // ------
   // Animation frame
 
-  public requestAnimationFrameAfter(fn: () => any, timeout: number) {
+  public requestAnimationFrameAfter(fn: () => void, timeout: number) {
     if (!this.enabled) { return null }
     this.setTimeout(() => {
       this.requestAnimationFrame(fn)
     }, timeout)
   }
 
-  public requestAnimationFrame(fn: () => any) {
+  public requestAnimationFrame(fn: () => void) {
     if (!this.enabled) { return null }
 
     const animationFrame = requestAnimationFrame(() => {
@@ -144,13 +144,13 @@ export default class Timer {
   // ------
   // Throttle & debounce
 
-  public throttle(fn: () => any, ms: number) {
+  public throttle(fn: () => void, ms: number) {
     if (!this.isActive) {
       return this.setTimeout(fn, ms)
     }
   }
 
-  public debounce(fn: () => any, ms: number) {
+  public debounce(fn: () => void, ms: number) {
     this.clearAll()
     return this.setTimeout(fn, ms)
   }
