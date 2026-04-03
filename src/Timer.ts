@@ -20,6 +20,7 @@ export default class Timer {
   }
 
   public disable() {
+    this.clearAll()
     this.enabled = false
   }
 
@@ -41,9 +42,7 @@ export default class Timer {
 
     const timeout = setTimeout(() => {
       this.timeouts.delete(timeout)
-      if (this.enabled) {
-        fn()
-      }
+      fn()
     }, ms)
 
     this.timeouts.add(timeout)
@@ -54,27 +53,6 @@ export default class Timer {
     if (timeout == null) { return }
     clearTimeout(timeout)
     this.timeouts.delete(timeout)
-  }
-
-  // ------
-  // setInterval / clearInterval
-
-  public setInterval(fn: () => void, ms: number) {
-    if (!this.enabled) { return null }
-
-    const timeout = setInterval(() => {
-      if (this.enabled) {
-        fn()
-      }
-    }, ms)
-    this.timeouts.add(timeout)
-    return timeout
-  }
-
-  public clearInterval(interval: number | null) {
-    if (interval == null) { return }
-    clearInterval(interval)
-    this.timeouts.delete(interval)
   }
 
   // ------
@@ -92,9 +70,7 @@ export default class Timer {
 
     const animationFrame = requestAnimationFrame(() => {
       this.animationFrames.delete(animationFrame)
-      if (this.enabled) {
-        fn()
-      }
+      fn()
     })
 
     this.animationFrames.add(animationFrame)
@@ -117,9 +93,6 @@ export default class Timer {
   // Promises
 
   public await<T>(promise: PromiseLike<T> | T): Promise<T> {
-    // Disable this rule because we correctly catch errors and there's no easy way to do this
-    // using the async/await syntax.
-     
     return new Promise(async (resolve, reject) => {
       try {
         const retval = await promise
@@ -186,9 +159,13 @@ export default class Timer {
 
   public clearAll() {
     for (const timeout of this.timeouts) {
-      clearTimeout(timeout)
+      try { clearTimeout(timeout) } catch {}
+    }
+    for (const animationFrame of this.animationFrames) {
+      try { cancelAnimationFrame(animationFrame) } catch {}
     }
     this.timeouts.clear()
+    this.animationFrames.clear()
   }
 
 }

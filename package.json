@@ -8,15 +8,9 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./src/index.ts",
   "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "default": "./dist/cjs/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
     "build": "npm run clean && npm run build:tsc",
@@ -26,30 +20,23 @@
     "clean": "rimraf dist",
     "lint": "eslint",
     "check": "tsc -p . --noEmit",
-    "test": "NODE_ENV=test jest"
+    "test": "vitest"
   },
   "peerDependencies": {
     "react": "^19.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.20",
-    "@types/node": "^24.5.2",
     "@types/react": "^19.1",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
-    "copyfiles": "^2.4.1",
     "eslint": "^9.38.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "eslint-plugin-unused-imports": "^4.3.0",
-    "globals": "^16.4.0",
-    "js-yaml": "^4.1.1",
-    "rimraf": "^5.0.5",
-    "tsc-alias": "^1.8.8",
+    "rimraf": "6.0.1",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "ytil": "workspace:^"
-  }
+  },
+  "packageManager": "pnpm@9.9.0"
 }
