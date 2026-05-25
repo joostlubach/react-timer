@@ -109,7 +109,7 @@ export default class Timer {
 
   public then<T, U>(promise: Promise<T>, callback: (result: T) => U): Promise<U | undefined> {
     return promise.then(result => {
-      if (this.enabled) { return }
+      if (!this.enabled) { return }
       return callback(result)
     })
   }
@@ -117,9 +117,15 @@ export default class Timer {
   // ------
   // Throttle & debounce
 
-  public throttle(fn: () => void, ms: number) {
+  private throttledArgs?: any[]
+
+  public throttle<F extends (...args: any[]) => void>(fn: F, ms: number, ...args: Parameters<F>) {
+    this.throttledArgs = args
     if (!this.isActive) {
-      return this.setTimeout(fn, ms)
+      return this.setTimeout(() => {
+        const args = this.throttledArgs as Parameters<F>
+        fn(...args)
+      }, ms)
     }
   }
 
