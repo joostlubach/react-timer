@@ -119,7 +119,7 @@ export default class Timer {
 
   private throttledArgs?: any[]
 
-  public throttle<F extends (...args: any[]) => void>(fn: F, ms: number, ...args: Parameters<F>) {
+  public throttle<F extends(...args: any[]) => void>(fn: F, ms: number, ...args: Parameters<F>) {
     this.throttledArgs = args
     if (!this.isActive) {
       return this.setTimeout(() => {
