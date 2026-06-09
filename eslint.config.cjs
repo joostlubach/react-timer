@@ -19,6 +19,7 @@ module.exports = {
   plugins: {
     '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
     '@stylistic': require('@stylistic/eslint-plugin'),
+    'unused-imports': require('eslint-plugin-unused-imports'),
     '@mosdev': require('@mosdev/eslint-plugin')
   },
 
