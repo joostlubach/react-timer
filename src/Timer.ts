@@ -107,13 +107,6 @@ export default class Timer {
     })
   }
 
-  public then<T, U>(promise: Promise<T>, callback: (result: T) => U): Promise<U | undefined> {
-    return promise.then(result => {
-      if (!this.enabled) { return }
-      return callback(result)
-    })
-  }
-
   // ------
   // Throttle & debounce
 
