@@ -1,5 +1,5 @@
 {
-  "name": "react-timer",
+  "name": "@mosdev/react-timer",
   "version": "0.0.1",
   "description": "Self-disposing timer (setTimeout, setInterval, etc.) for React components",
   "author": "Joost Lubach",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "ytil": "workspace:^"
+    "@mosdev/ytil": "workspace:^"
   },
   "packageManager": "pnpm@9.9.0"
 }
